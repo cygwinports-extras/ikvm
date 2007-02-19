@@ -1,0 +1,61 @@
+ikvm
+------------------------------------------
+IKVM.NET is an implementation of Java for Mono and the Microsoft .NET 
+Framework. It includes the following components:
+* A Java Virtual Machine implemented in .NET
+* A .NET implementation of the Java class libraries
+* Tools that enable Java and .NET interoperability
+
+Runtime requirements:
+  mono-1.2.3.1-1
+
+Canonical website:
+  http://www.ikvm.net/
+
+Canonical download:
+  http://downloads.sourceforge.net/ikvm/
+
+-------------------------------------------
+
+Build instructions:
+  unpack ikvm-0.32.0.0-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./ikvm-0.32.0.0-X.cygport all
+
+This will create:
+  /usr/src/ikvm-0.32.0.0-X-src.tar.bz2
+  /usr/src/ikvm-0.32.0.0-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/bin/ikvm
+  /usr/bin/ikvmc
+  /usr/bin/ikvmstub
+  /usr/lib/mono/gac/IKVM.AWT.WinForms/0.32.0.0__13235d27fcbfff58/IKVM.AWT.WinForms.dll
+  /usr/lib/mono/gac/IKVM.GNU.Classpath/0.32.0.0__13235d27fcbfff58/IKVM.GNU.Classpath.dll
+  /usr/lib/mono/gac/IKVM.Runtime/0.32.0.0__13235d27fcbfff58/IKVM.Runtime.dll
+  /usr/lib/mono/gac/JVM/0.32.0.0__13235d27fcbfff58/JVM.DLL
+  /usr/lib/mono/ikvm/IKVM.AWT.WinForms.dll
+  /usr/lib/mono/ikvm/IKVM.GNU.Classpath.dll
+  /usr/lib/mono/ikvm/IKVM.Runtime.dll
+  /usr/lib/mono/ikvm/JVM.DLL
+  /usr/lib/mono/ikvm/ikvm.exe
+  /usr/lib/mono/ikvm/ikvmc.exe
+  /usr/lib/mono/ikvm/ikvmstub.exe
+  /usr/share/doc/Cygwin/ikvm-0.32.0.0.README
+  /usr/share/doc/ikvm-0.32.0.0/LICENSE
+
+------------------
+
+Port Notes:
+
+----- version 0.32.0.0-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
