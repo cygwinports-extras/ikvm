@@ -1,0 +1,38 @@
+inherit mono
+
+DESCRIPTION="Java Virtual Machine for .NET"
+HOMEPAGE="http://www.ikvm.net/"
+SRC_URI="mirror://sourceforge/${PN}/${PN}bin-${PV}.zip"
+
+src_compile() { :; }
+src_test() { :; }
+
+src_install() {
+	cd ${S}/bin
+
+	for a in IKVM.*.dll JVM.DLL
+	do
+		dogac ${a} ${PN}
+	done
+
+	for x in ikvm ikvmc ikvmstub
+	do
+		exeinto /usr/lib/mono/${PN}
+		doexe *.exe
+		mono_wrapper ${x} /usr/lib/mono/${PN}/${x}.exe
+	done
+
+	dodoc ../../LICENSE
+
+	dodir /usr/lib/pkgconfig
+	cat > ${D}/usr/lib/pkgconfig/${PN}.pc <<-_EOF
+		prefix=/usr
+		exec_prefix=\${prefix}
+		libdir=\${prefix}/lib
+
+		Name: IKVM.NET
+		Description: An implementation of Java for Mono and the Microsoft .NET Framework.
+		Version: ${PV}
+		Libs: -r:\${libdir}/mono/ikvm/IKVM.Runtime.dll -r:\${libdir}/mono/ikvm/IKVM.GNU.Classpath.dll
+		_EOF
+}
